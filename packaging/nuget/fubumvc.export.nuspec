@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>FubuMVC.Export</id>
+    <version>0.0</version>
+    <authors>Joe McBride, Joshua Arnold</authors>
+    <owners>Joe McBride, Joshua Arnold</owners>
+    <licenseUrl>https://github.com/DarthFubuMVC/fubumvc/raw/master/license.txt</licenseUrl>
+    <projectUrl>http://mvc.fubu-project.org/</projectUrl>
+    <iconUrl>https://github.com/DarthFubuMVC/fubu-collateral/raw/master/Icons/FubuMvc_256.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple Excel export for FubuMVC applications.</description>
+    <tags>fubumvc excel</tags>
+    <dependencies>
+      <dependency id="FubuMVC.Core" version="1.0.1.1453" />
+      <dependency id="FubuMVC.Media" version="0.9.5.340" />
+      <dependency id="DocumentFormat.OpenXml" version="1.0.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\..\src\FubuMVC.Export\bin\release\FubuMVC.Export.*" target="lib\net40" />
+  </files>
+</package>
