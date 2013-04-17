@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.Export", "FubuMVC.Export\FubuMVC.Export.csproj", "{28812206-5A03-4A0C-A562-5A08F297180C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportHarness", "ExportHarness\ExportHarness.csproj", "{76B85F3F-8CA6-4765-ADB2-0B81F53C314F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.Export.Tests", "FubuMVC.Export.Tests\FubuMVC.Export.Tests.csproj", "{5458ABB4-5714-41BD-8B27-3DA79457471A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28812206-5A03-4A0C-A562-5A08F297180C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28812206-5A03-4A0C-A562-5A08F297180C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28812206-5A03-4A0C-A562-5A08F297180C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28812206-5A03-4A0C-A562-5A08F297180C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B85F3F-8CA6-4765-ADB2-0B81F53C314F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B85F3F-8CA6-4765-ADB2-0B81F53C314F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B85F3F-8CA6-4765-ADB2-0B81F53C314F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B85F3F-8CA6-4765-ADB2-0B81F53C314F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

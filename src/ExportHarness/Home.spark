@@ -1,0 +1,17 @@
+﻿<viewdata model="ExportHarness.HomeModel" />
+
+<content:head>
+    <Script src="export.js" />
+</content:head>
+
+<content:main>
+    <button class="btn btn-primary btn-export">Export</button>
+</content:main>
+
+<content:footer>
+    <script type="text/javascript">
+        $(function() {
+            var controller = $.fubuExport.bootstrap();
+        });
+    </script>
+</content:footer>
