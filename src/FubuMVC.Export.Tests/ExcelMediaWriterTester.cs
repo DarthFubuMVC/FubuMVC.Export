@@ -9,7 +9,6 @@ namespace FubuMVC.Export.Tests
     [TestFixture]
     public class ExcelMediaWriterTester : InteractionContext<ExcelMediaWriter<ExcelMediaWriterTester.MyModel>>
     {
-        private IExcelMapping theMapping;
         private IJsonWriter theJsonWriter;
         private IExcelMappingRunner theRunner;
         private const string theFileUrl = "/some/url";
@@ -18,7 +17,6 @@ namespace FubuMVC.Export.Tests
         [SetUp]
         public void Setup()
         {
-            theMapping = MockFor<IExcelMapping>();
             theJsonWriter = MockFor<IJsonWriter>();
             theRunner = MockFor<IExcelMappingRunner>();
 
