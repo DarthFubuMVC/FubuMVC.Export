@@ -7,6 +7,8 @@ Simple Excel exports.
 * [Create a JavaScript Service](#create-a-javascript-service)
 * [A Sample JavaScript Controller That Uses the Service](#a-sample-javascript-controller-that-uses-the-service)
 * [How it Works](#how-it-works)
+* [Dependencies](#dependencies)
+* [Gotchas](#gotchas)
 
 #Setup an Endpoint#
 Create an `EndPoint` with an `Action` that returns the resource you want to export.  Our example will be a `Person` with `Friends`.
@@ -121,3 +123,9 @@ Here is a sample JavaScript Controller that uses the defined service.  The `expo
 FubuMVC.Export will scan your route outputs looking for a matching `ExcelMapping<T>` or `ExcelMapping<T,K>`.  If it finds one, it will wire up a `ExcelMediaWriter<T>` as an available output.  In our example, our route returns a `Person` object, so it will look for a matching `ExcelMapping<Person>` or `ExcelMapping<Person,K>`.  The matching process ignores the `K` generic parameter.  Since it found a mapper, it will create a `ExcelMediaWriter<Person>`.  When you make a http request with the `Accept Header` set to `application/xlsx` it will hit that wired up `ExcelMediaWriter`.
 
 When the `Action`, in our case `get_person`, is requested the `ExcelMediaWriter` will write a temporary file to disk, and return a url that can be used to download the file.  FubuMVC.Export automatically wires up a download `EndPoint` with an `Action` which returns a `DownloadFileModel`.  By default this looks like `file/download/{filenamehash}`.  When the `file/download` `Action` is requested with a valid filename hash it will download the file.
+
+#Dependencies#
+FubuMVC.Export uses the `DocumentFormat.OpenXml` nuget to do the Excel generation.  `DocumentFormat.OpenXml` depends on `WindowsBase`.
+
+#Gotchas#
+Internet Explorer will cache ajax requests when using jQuery.  When doing an ajax requests with jQuery to download the Excel file, make sure to set `cache:false` on the request.
