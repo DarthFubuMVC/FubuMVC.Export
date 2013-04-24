@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportHarness", "ExportHarn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.Export.Tests", "FubuMVC.Export.Tests\FubuMVC.Export.Tests.csproj", "{5458ABB4-5714-41BD-8B27-3DA79457471A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.SlickGrid.Export", "FubuMVC.SlickGrid.Export\FubuMVC.SlickGrid.Export.csproj", "{803BA759-977A-4028-842F-DC540D550572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.SlickGrid.Export.Tests", "FubuMVC.SlickGrid.Export.Tests\FubuMVC.SlickGrid.Export.Tests.csproj", "{B99ECAB0-21B6-43F6-9187-9CA6F0049208}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5458ABB4-5714-41BD-8B27-3DA79457471A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803BA759-977A-4028-842F-DC540D550572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803BA759-977A-4028-842F-DC540D550572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803BA759-977A-4028-842F-DC540D550572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803BA759-977A-4028-842F-DC540D550572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99ECAB0-21B6-43F6-9187-9CA6F0049208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99ECAB0-21B6-43F6-9187-9CA6F0049208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99ECAB0-21B6-43F6-9187-9CA6F0049208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99ECAB0-21B6-43F6-9187-9CA6F0049208}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

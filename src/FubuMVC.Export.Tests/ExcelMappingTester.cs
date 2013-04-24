@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using FubuCore;
+using FubuCore.Formatting;
 using NUnit.Framework;
 
 namespace FubuMVC.Export.Tests
@@ -133,6 +135,13 @@ namespace FubuMVC.Export.Tests
             public MySwappedDoubleSourceMapper()
             {
                 Source<SwappedDoubleSource>();
+            }
+        }
+
+        public class MyCustomMapper : ExcelMapping<MyModel>, IExcelMapping
+        {
+            void IExcelMapping.WriteTo(IExcelWriter writer, IDisplayFormatter formatter, IServiceLocator locator, object model)
+            {
             }
         }
     }

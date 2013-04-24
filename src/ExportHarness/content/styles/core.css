@@ -1,1 +1,8 @@
-﻿
+﻿.html-export {
+    margin-top: 15px;
+}
+
+#file-grid {
+    height: 200px;
+    margin-top: 15px;
+}

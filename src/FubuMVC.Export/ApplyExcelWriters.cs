@@ -7,7 +7,7 @@ using FubuMVC.Core.Resources.Conneg;
 
 namespace FubuMVC.Export
 {
-    [ConfigurationType(ConfigurationType.Instrumentation)]
+    [ConfigurationType(ConfigurationType.Conneg)]
     public class ApplyExcelWriters : IConfigurationAction
     {
         private static readonly Lazy<IEnumerable<Type>> Mappings;
@@ -42,7 +42,7 @@ namespace FubuMVC.Export
         {
             var types = TypePool.AppDomainTypes();
 
-            var mappings = types.TypesMatching(type => type.Closes(typeof (ExcelMapping<,>)) && type.IsConcreteWithDefaultCtor());
+            var mappings = types.TypesMatching(type => type.Closes(typeof (ExcelMapping<,>)));
             return mappings;
         }
     }
