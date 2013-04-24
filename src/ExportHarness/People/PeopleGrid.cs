@@ -16,11 +16,11 @@ namespace ExportHarness.People
     {
         public static void EnableExcelExport<T>(this GridDefinition<T> definition) where T : class 
         {
-            definition.ChainBehavior((graph, chain, sourceType, runnerType) =>
-            {
-                var type = typeof (IDictionary<string, object>);
+            //definition.ChainBehavior((graph, chain, sourceType, runnerType) =>
+            //{
+                //var type = typeof (IDictionary<string, object>);
 
-                var mapping = typeof (SlickGridExcelMapping<>).MakeGenericType(type);
+                //var mapping = typeof (SlickGridExcelMapping<>).MakeGenericType(type);
                 //var type = typeof (T);
 
                 //MethodInfo method = runnerType.GetMethod("Run");
@@ -36,11 +36,11 @@ namespace ExportHarness.People
                 //newChain.Route.Append("Export");
                 //newChain.Route.Append(typeof (T).Name);
 
-                var node = typeof (ExcelWriterNode<>).CloseAndBuildAs<WriterNode>((object) mapping, type);
-                chain.Output.Writers.InsertFirst(node);
+                //var node = typeof (ExcelWriterNode<>).CloseAndBuildAs<WriterNode>((object) mapping, type);
+                //chain.Output.Writers.InsertFirst(node);
 
                 //graph.AddChain(newChain);
-            });
+            //});
         }
     }
 
