@@ -9,21 +9,22 @@ using FubuMVC.Export;
 
 namespace FubuMVC.SlickGrid.Export
 {
-    public class SlickGridExcelMapping<T>
-        : ExcelMapping<T>, IExcelMapping
-        where T : class
+    public class SlickGridExcelMapping<TResource, TGridType>
+        : ExcelMapping<TResource>, IExcelMapping
+        where TResource : class
+        where TGridType : IGridDefinition
     {
-        private Type _gridType;
+        //private Type _gridType;
 
-        public void SlickGrid<TGridType>()
-        {
-            _gridType = typeof (TGridType);
-        }
+        //public void SlickGrid<TGridType>()
+        //{
+        //    _gridType = typeof (TGridType);
+        //}
 
         void IExcelMapping.WriteTo(IExcelWriter writer, IDisplayFormatter formatter, IServiceLocator locator,
                                    object model)
         {
-            var grid = locator.GetInstance(_gridType).As<IGridDefinition>();
+            var grid = locator.GetInstance(typeof (TGridType)).As<IGridDefinition>();
             var allColumns = grid.Columns();
 
             var fieldAccessService = locator.GetInstance<IFieldAccessService>();

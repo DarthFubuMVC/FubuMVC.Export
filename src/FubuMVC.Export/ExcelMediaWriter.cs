@@ -27,13 +27,14 @@ namespace FubuMVC.Export
             var fileUrl = _runner.UrlForFileName(fileName);
             var cont = AjaxContinuation.Successful().DownloadFileUrl(fileUrl);
             var values = cont.ToDictionary();
-            _jsonWriter.Write(values, mimeType);
+            _jsonWriter.Write(values, "application/json");
         }
 
         public IEnumerable<string> Mimetypes
         {
             get
             {
+                yield return "application/xlsx";
                 yield return "application/json";
             }
         }
