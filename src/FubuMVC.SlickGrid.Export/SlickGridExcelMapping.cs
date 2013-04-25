@@ -14,13 +14,6 @@ namespace FubuMVC.SlickGrid.Export
         where TResource : class
         where TGridType : IGridDefinition
     {
-        //private Type _gridType;
-
-        //public void SlickGrid<TGridType>()
-        //{
-        //    _gridType = typeof (TGridType);
-        //}
-
         void IExcelMapping.WriteTo(IExcelWriter writer, IDisplayFormatter formatter, IServiceLocator locator,
                                    object model)
         {
@@ -36,7 +29,6 @@ namespace FubuMVC.SlickGrid.Export
             var headers = GetHeaders(filteredColumns, rights);
             writer.WriteHeaders(headers.Headers);
 
-            var runnerType = grid.DetermineRunnerType();
             var data = model.As<IDictionary<string, object>>();
             var rowData = data["data"].As<IEnumerable<IDictionary<string, object>>>();
 
@@ -53,7 +45,6 @@ namespace FubuMVC.SlickGrid.Export
                 writer.WriteRow(values.ToArray());
             });
         }
-
 
         private HeaderInfo GetHeaders(IList<IGridColumn> columns, Cache<IGridColumn, AccessRight> rights)
         {
