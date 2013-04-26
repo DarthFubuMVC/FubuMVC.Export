@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="AjaxContinuationExtensions.cs" />
     <Compile Include="ApplyResourceExcelWriterStrategy.cs" />
+    <Compile Include="SimpleExportGraphModifier.cs" />
     <Compile Include="SimpleStrategySource.cs" />
     <Compile Include="Endpoints\DownloadExportFileActionSource.cs" />
     <Compile Include="ExcelMappingRunner.cs" />

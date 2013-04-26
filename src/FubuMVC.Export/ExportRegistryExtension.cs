@@ -22,7 +22,7 @@ namespace FubuMVC.Export
 
             registry.AlterSettings<FubuExportSettings>(settings =>
             {
-                settings.FindWith(new ExcelWriterStrategySource());
+                settings.ModifyWith(new SimpleExportGraphModifier().FindWith(new ExcelWriterStrategySource()));
             });
         }
     }

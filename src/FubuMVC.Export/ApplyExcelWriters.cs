@@ -11,18 +11,9 @@ namespace FubuMVC.Export
         public void Configure(BehaviorGraph graph)
         {
             var settings = graph.Settings.Get<FubuExportSettings>();
-            var exportGraph = ExportGraph.Graph;
+            var exportGraph = ExportGraph.BuildFrom(settings);
 
-            // hook in any additional configuration
-            settings.Modifiers().Each(x => x.Modify(exportGraph));
-
-            // add configured source
-            settings.FindWith(exportGraph.Source());
-
-            // don't need the graph any longer
-            ExportGraph.Graph = null;
-
-            var strategies = settings.AllStrategies();
+            var strategies = exportGraph.Strategies();
 
             graph
                 .Behaviors

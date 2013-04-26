@@ -65,9 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplySlickGridExcelWriters.cs" />
-    <Compile Include="SlickGridExcelExportSettings.cs" />
+    <Compile Include="ExcelExportAttribute.cs" />
     <Compile Include="SlickGridExcelMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlickGridExportModifier.cs" />
+    <Compile Include="SlickGridExportStrategy.cs" />
+    <Compile Include="SlickGridExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FubuMVC.Export\FubuMVC.Export.csproj">

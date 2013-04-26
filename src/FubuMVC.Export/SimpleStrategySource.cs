@@ -4,11 +4,12 @@ namespace FubuMVC.Export
 {
     public class SimpleStrategySource : IExcelWriterStrategySource
     {
-        private readonly IEnumerable<IApplyExcelWriterStrategy> _strategies;
+        private readonly IList<IApplyExcelWriterStrategy> _strategies = new List<IApplyExcelWriterStrategy>();
 
-        public SimpleStrategySource(IEnumerable<IApplyExcelWriterStrategy> strategies)
+        public SimpleStrategySource With(IApplyExcelWriterStrategy strategy)
         {
-            _strategies = strategies;
+            _strategies.Add(strategy);
+            return this;
         }
 
         public IEnumerable<IApplyExcelWriterStrategy> FindStrategies()
