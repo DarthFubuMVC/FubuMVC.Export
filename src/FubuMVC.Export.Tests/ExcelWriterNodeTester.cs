@@ -16,7 +16,14 @@ namespace FubuMVC.Export.Tests
         [SetUp]
         public void Setup()
         {
+            ExportGraph.Graph = new ExportGraph();
             theGraph = BehaviorGraph.BuildFrom<ExportTestRegistry>();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            ExportGraph.Graph = null;
         }
 
         [Test]

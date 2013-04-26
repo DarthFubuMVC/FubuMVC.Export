@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplySlickGridExcelWriters.cs" />
-    <Compile Include="ExportRegistryExtension.cs" />
     <Compile Include="SlickGridExcelExportSettings.cs" />
     <Compile Include="SlickGridExcelMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

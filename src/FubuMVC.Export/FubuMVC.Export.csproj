@@ -63,17 +63,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjaxContinuationExtensions.cs" />
+    <Compile Include="ApplyResourceExcelWriterStrategy.cs" />
+    <Compile Include="SimpleStrategySource.cs" />
     <Compile Include="Endpoints\DownloadExportFileActionSource.cs" />
     <Compile Include="ExcelMappingRunner.cs" />
     <Compile Include="Endpoints\DownloadExportFileEndpoint.cs" />
     <Compile Include="ExcelMapping.cs" />
     <Compile Include="ExcelWriterFactory.cs" />
     <Compile Include="ExcelWriterNode.cs" />
+    <Compile Include="ExcelWriterStrategyStrategySource.cs" />
+    <Compile Include="ExportGraph.cs" />
+    <Compile Include="FubuExportSettings.cs" />
+    <Compile Include="IApplyExcelWriterStrategy.cs" />
     <Compile Include="IExcelMapping.cs" />
     <Compile Include="IExcelSource.cs" />
     <Compile Include="IExcelWriter.cs" />
     <Compile Include="ExcelMediaWriter.cs" />
     <Compile Include="ApplyExcelWriters.cs" />
+    <Compile Include="IExcelWriterStrategySource.cs" />
+    <Compile Include="IExportGraphModifier.cs" />
     <Compile Include="ITemporaryFileStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExportRegistryExtension.cs" />
