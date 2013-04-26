@@ -71,7 +71,7 @@
     <Compile Include="ExcelMapping.cs" />
     <Compile Include="ExcelWriterFactory.cs" />
     <Compile Include="ExcelWriterNode.cs" />
-    <Compile Include="ExcelWriterStrategyStrategySource.cs" />
+    <Compile Include="ExcelWriterStrategySource.cs" />
     <Compile Include="ExportGraph.cs" />
     <Compile Include="FubuExportSettings.cs" />
     <Compile Include="IApplyExcelWriterStrategy.cs" />
