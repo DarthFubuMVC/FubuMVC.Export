@@ -129,6 +129,8 @@
     <Compile Include="HomeEndpoint.cs" />
     <Compile Include="Infrastructure\Conneg\HtmlMediaWriter.cs" />
     <Compile Include="People\PeopleEndpoint.cs" />
+    <Compile Include="People\PeopleGrid.cs" />
+    <Compile Include="SlickGridEndpoint.cs" />
     <Compile Include="StructureMap\ExportHarnessRegistry.cs" />
     <Compile Include="StructureMap\WebBootstrapper.cs" />
     <Compile Include="StructureMap\CoreRegistry.cs" />
@@ -137,6 +139,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\scripts\export.js" />
+    <Content Include="content\scripts\exportservice.js" />
+    <Content Include="content\scripts\slickgridexport.js" />
     <Content Include="content\styles\core.css" />
     <Content Include="Global.asax" />
     <Content Include="Shared\bindings.xml" />
@@ -159,12 +163,22 @@
       <Project>{28812206-5a03-4a0c-a562-5a08f297180c}</Project>
       <Name>FubuMVC.Export</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FubuMVC.SlickGrid.Export\FubuMVC.SlickGrid.Export.csproj">
+      <Project>{803ba759-977a-4028-842f-dc540d550572}</Project>
+      <Name>FubuMVC.SlickGrid.Export</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="export.asset.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="en-US.locale.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Home.spark">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SlickGrid.spark">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -183,9 +197,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>50603</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:57512/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

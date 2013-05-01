@@ -46,7 +46,6 @@ namespace FubuMVC.Export
                     throw new ArgumentOutOfRangeException("Wrong type as the argument to IExcelSource<,>");
                 }
 
-
                 return;
             }
 

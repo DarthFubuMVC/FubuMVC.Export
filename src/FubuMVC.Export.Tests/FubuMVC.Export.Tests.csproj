@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjaxContinuationExtensionTester.cs" />
+    <Compile Include="GetClassRootTypeTester.cs" />
     <Compile Include="ExcelMappingRunnerTester.cs" />
     <Compile Include="ExcelMappingTester.cs" />
     <Compile Include="FubuTestApplication.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="RecordingJsonWriter.cs" />
     <Compile Include="IntegrationBootstrapper.cs" />
     <Compile Include="RecordingExcelWriter.cs" />
+    <Compile Include="SimpleStrategySourceTester.cs" />
     <Compile Include="StubCurrentHttpRequest.cs" />
     <Compile Include="DownloadExportFileEndpointTester.cs" />
     <Compile Include="ExcelWriterFactoryTester.cs" />

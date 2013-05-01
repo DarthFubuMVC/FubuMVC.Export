@@ -34,13 +34,22 @@ namespace ExportHarness.Infrastructure.Conneg
 
         private HtmlTag BuildPersonHtml(Person person)
         {
-            return new DivTag().Append("span", tag => tag.Text(person.Name));
+            return new LiTag().Text(string.Format("{0} has {1} friend(s).", person.Name, person.Friends.Count));
         }
 
         public IEnumerable<string> Mimetypes {
             get
             {
                 yield return "text/html";
+            }
+        }
+
+        public class LiTag : HtmlTag
+        {
+            public LiTag()
+                : base("li")
+            {
+
             }
         }
     }
