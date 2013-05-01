@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"   />
-        <Asset src="twitterbootstrap"/>
         <Asset src="core.css" />
         <use content="head" />
         <Styles />
@@ -11,8 +10,10 @@
         <div id="top-menu" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">Fubu Export</a>
-
+                    <a class="brand" href="/">Fubu Export</a>
+                    <ul class="nav">
+                        <li><a href="/slickgrid">SlickGrid</a></li>
+                    </ul>
                     <use content="navigation" />
                 </div>
             </div>

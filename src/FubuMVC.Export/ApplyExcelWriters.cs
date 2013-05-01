@@ -1,49 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using FubuCore;
+﻿using System.Collections.Generic;
+using System.Linq;
 using FubuMVC.Core;
 using FubuMVC.Core.Registration;
-using FubuMVC.Core.Resources.Conneg;
 
 namespace FubuMVC.Export
 {
     [ConfigurationType(ConfigurationType.Instrumentation)]
     public class ApplyExcelWriters : IConfigurationAction
     {
-        private static readonly Lazy<IEnumerable<Type>> Mappings;
-
-        static ApplyExcelWriters()
-        {
-            Mappings = new Lazy<IEnumerable<Type>>(findMappings);
-        }
-
         public void Configure(BehaviorGraph graph)
         {
+            var settings = graph.Settings.Get<FubuExportSettings>();
+            var exportGraph = ExportGraph.BuildFrom(settings);
+
+            var strategies = exportGraph.Strategies();
+
             graph
                 .Behaviors
-                .Each(chain =>
-                {
-                    Mappings.Value.Each(mapping =>
-                    {
-                        var type = mapping.BaseType.GetGenericArguments()[0];
-
-                        if (chain.ResourceType() == type)
-                        {
-                            var node = typeof (ExcelWriterNode<>).CloseAndBuildAs<WriterNode>((object) mapping,
-                                                                                                   type);
-
-                            chain.Output.Writers.InsertFirst(node);
-                        }
-                    });
-                });
-        }
-
-        private static IEnumerable<Type> findMappings()
-        {
-            var types = TypePool.AppDomainTypes();
-
-            var mappings = types.TypesMatching(type => type.Closes(typeof (ExcelMapping<,>)) && type.IsConcreteWithDefaultCtor());
-            return mappings;
+                .Where(x => strategies.Any(s => s.Matches(x)))
+                .Each(chain => strategies.Where(s => s.Matches(chain)).Each(s => s.Apply(chain)));
         }
     }
+
 }

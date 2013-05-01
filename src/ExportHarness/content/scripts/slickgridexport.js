@@ -1,14 +1,14 @@
 ﻿(function ($) {
 
-    function ExportController(service) {
+    function SlickGridExportController(service) {
         this.service = service;
     }
 
-    ExportController.prototype = {
+    SlickGridExportController.prototype = {
         exportPeople: function () {
             var that = this;
             this.service
-                .exportExcel('/person')
+                .exportExcel('/_diagnostics/_data/Person')
                 .done(function(result) {
                     if (true === result.success) {
                         var src = result.fileUrl + '?NameToDisplay=myexport.xlsx';
@@ -21,23 +21,12 @@
             $('.btn-export').on('click', function() {
                 that.exportPeople();
             });
-            $('.btn-html').on('click', function() {
-                that.exportHtml();
-            });
         },
         download: function(src) {
             $('<iframe />')
                 .attr('src', src)
                 .css('visibility', 'hidden')
                 .appendTo('body');
-        },
-        exportHtml: function() {
-            this.service
-                .exportHtml('/person')
-                .done(function (html_results) {
-                    console.log('html', html_results);
-                    $('.html-export').append(html_results);
-                });
         }
     };
 
@@ -46,13 +35,13 @@
         if (application) return application;
 
         var service = new $.ExportService();
-        application = new ExportController(service);
+        application = new SlickGridExportController(service);
         application.init();
         return application;
     }
 
     $.extend(true, $, {
-       'fubuExport': {
+       'fubuSlickGridExport': {
            'bootstrap': bootstrap
        } 
     });

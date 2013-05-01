@@ -19,6 +19,11 @@ namespace FubuMVC.Export
             registry.Policies.Add<DownloadFileConvention>();
 
             registry.Actions.FindWith<DownloadExportFileActionSource>();
+
+            registry.AlterSettings<FubuExportSettings>(settings =>
+            {
+                settings.ModifyWith(new SimpleExportGraphModifier().FindWith(new ExcelWriterStrategySource()));
+            });
         }
     }
 }

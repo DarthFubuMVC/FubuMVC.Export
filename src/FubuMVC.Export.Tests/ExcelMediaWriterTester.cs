@@ -38,14 +38,14 @@ namespace FubuMVC.Export.Tests
             var output = arguments.First<IDictionary<string, object>>();
             output["fileUrl"].ShouldNotBeNull();
             output["fileUrl"].ShouldEqual(theFileUrl);
-            arguments.Second<string>().ShouldBeTheSameAs(mimeType);
-            theJsonWriter.AssertWasCalled(x => x.Write(Arg<object>.Is.Anything, Arg<string>.Is.Equal(mimeType)));
+            arguments.Second<string>().ShouldBeTheSameAs("application/json");
+            theJsonWriter.AssertWasCalled(x => x.Write(Arg<object>.Is.Anything, Arg<string>.Is.Equal("application/json")));
         }
 
         [Test]
         public void mimetypes_should_be_correct()
         {
-            ClassUnderTest.Mimetypes.Join("").ShouldEqual("application/json");
+            ClassUnderTest.Mimetypes.Join(", ").ShouldEqual("application/xlsx, application/json");
         }
 
         public class MyModel

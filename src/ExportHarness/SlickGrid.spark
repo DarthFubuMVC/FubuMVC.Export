@@ -1,0 +1,28 @@
+﻿<use namespace="FubuMVC.SlickGrid" />
+<use namespace="ExportHarness.People" />
+<viewdata model="ExportHarness.SlickGridModel" />
+
+<content:head>
+    <Script src="slickgridexport.js"/>
+</content:head>
+
+<content:main>
+    <div class="row-fluid">
+        <button class="btn btn-primary btn-export">Export Excel</button>
+    </div>
+
+    <div class="main-grid row-fluid">
+        <div class="span12 record-container">
+            !{this.RenderGrid<PeopleGrid>("file-grid")}
+        </div>
+    </div>
+
+</content:main>
+
+<content:footer>
+    <script type="text/javascript">
+        $(function() {
+            var app = $.fubuSlickGridExport.bootstrap();
+        });
+    </script>
+</content:footer>

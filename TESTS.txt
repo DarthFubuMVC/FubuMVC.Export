@@ -1,1 +1,2 @@
 FubuMVC.Export.Tests
+FubuMVC.SlickGrid.Export.Tests

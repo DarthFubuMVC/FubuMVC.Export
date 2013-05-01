@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28812206-5A03-4A0C-A562-5A08F297180C}</ProjectGuid>
+    <ProjectGuid>{803BA759-977A-4028-842F-DC540D550572}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FubuMVC.Export</RootNamespace>
-    <AssemblyName>FubuMVC.Export</AssemblyName>
+    <RootNamespace>FubuMVC.SlickGrid.Export</RootNamespace>
+    <AssemblyName>FubuMVC.SlickGrid.Export</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -34,9 +34,6 @@
     <Reference Include="Bottles">
       <HintPath>..\packages\Bottles\lib\Bottles.dll</HintPath>
     </Reference>
-    <Reference Include="DocumentFormat.OpenXml">
-      <HintPath>..\packages\DocumentFormat.OpenXml\lib\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore\lib\FubuCore.dll</HintPath>
     </Reference>
@@ -46,8 +43,14 @@
     <Reference Include="FubuMVC.Core">
       <HintPath>..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.Core.UI">
+      <HintPath>..\packages\FubuMVC.Core.UI\lib\net40\FubuMVC.Core.UI.dll</HintPath>
+    </Reference>
     <Reference Include="FubuMVC.Media">
       <HintPath>..\packages\FubuMVC.Media\lib\net40\FubuMVC.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="FubuMVC.SlickGrid">
+      <HintPath>..\packages\FubuMVC.SlickGrid\lib\net40\FubuMVC.SlickGrid.dll</HintPath>
     </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\packages\HtmlTags\lib\4.0\HtmlTags.dll</HintPath>
@@ -59,38 +62,22 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxContinuationExtensions.cs" />
-    <Compile Include="ApplyResourceExcelWriterStrategy.cs" />
-    <Compile Include="ExportTypeExtensions.cs" />
-    <Compile Include="SimpleExportGraphModifier.cs" />
-    <Compile Include="SimpleStrategySource.cs" />
-    <Compile Include="Endpoints\DownloadExportFileActionSource.cs" />
-    <Compile Include="ExcelMappingRunner.cs" />
-    <Compile Include="Endpoints\DownloadExportFileEndpoint.cs" />
-    <Compile Include="ExcelMapping.cs" />
-    <Compile Include="ExcelWriterFactory.cs" />
-    <Compile Include="ExcelWriterNode.cs" />
-    <Compile Include="ExcelWriterStrategySource.cs" />
-    <Compile Include="ExportGraph.cs" />
-    <Compile Include="FubuExportSettings.cs" />
-    <Compile Include="IApplyExcelWriterStrategy.cs" />
-    <Compile Include="IExcelMapping.cs" />
-    <Compile Include="IExcelSource.cs" />
-    <Compile Include="IExcelWriter.cs" />
-    <Compile Include="ExcelMediaWriter.cs" />
-    <Compile Include="ApplyExcelWriters.cs" />
-    <Compile Include="IExcelWriterStrategySource.cs" />
-    <Compile Include="IExportGraphModifier.cs" />
-    <Compile Include="ITemporaryFileStorage.cs" />
+    <Compile Include="ApplySlickGridExcelWriters.cs" />
+    <Compile Include="ExcelExportAttribute.cs" />
+    <Compile Include="SlickGridExcelMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ExportRegistryExtension.cs" />
-    <Compile Include="TemporaryFileStorage.cs" />
-    <Compile Include="XlsxExcelWriter.cs" />
+    <Compile Include="SlickGridExportModifier.cs" />
+    <Compile Include="SlickGridExportStrategy.cs" />
+    <Compile Include="SlickGridExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FubuMVC.Export\FubuMVC.Export.csproj">
+      <Project>{28812206-5a03-4a0c-a562-5a08f297180c}</Project>
+      <Name>FubuMVC.Export</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -99,13 +86,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <EmbeddedResource Include="pak-WebContent.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="pak-Data.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="pak-Config.zip" />
-  </ItemGroup>
 </Project>

@@ -5,8 +5,11 @@
 </content:head>
 
 <content:main>
-    <button class="btn btn-primary btn-export">Export</button>
-    <button class="btn btn-primary btn-html">Html</button>
+    <div class="btn-group">
+        <button class="btn btn-primary btn-export">Export Excel</button>
+        <button class="btn btn-primary btn-html">Retrieve Html</button>
+    </div>
+    <ul class="html-export"></ul>
 </content:main>
 
 <content:footer>
