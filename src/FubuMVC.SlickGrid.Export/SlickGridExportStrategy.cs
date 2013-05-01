@@ -12,20 +12,26 @@ namespace FubuMVC.SlickGrid.Export
         where TGridType : IGridDefinition
     {
         private static readonly Type OutputType = typeof (IDictionary<string, object>);
-        private static readonly Type GridType = typeof (TGridType);
-        private static readonly Type ResourceType = GridType.BaseType.GetGenericArguments()[0];
+        private readonly Type _gridType = typeof (TGridType);
+        private readonly Type _resourceType;
+
+        public SlickGridExportStrategy()
+        {
+            _resourceType = _gridType.GetBaseType(type =>
+                type.IsGenericType && type.GetGenericTypeDefinition() == typeof (GridDefinition<>)).GetGenericArguments().FirstOrDefault();
+        }
 
         public bool Matches(BehaviorChain chain)
         {
             return chain.Calls.Any(c =>
                 c.HasOutput
                     && c.OutputType() == OutputType
-                    && c.HandlerType.GetGenericArguments()[0] == ResourceType);
+                    && c.HandlerType.GetGenericArguments().First() == _resourceType);
         }
 
         public void Apply(BehaviorChain chain)
         {
-            var mapping = typeof (SlickGridExcelMapping<,>).MakeGenericType(OutputType, GridType);
+            var mapping = typeof (SlickGridExcelMapping<,>).MakeGenericType(OutputType, _gridType);
             var node = typeof (ExcelWriterNode<>).CloseAndBuildAs<WriterNode>((object) mapping, OutputType);
             chain.Output.Writers.AddToEnd(node);
         }

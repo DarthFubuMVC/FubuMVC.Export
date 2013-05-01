@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FubuCore;
 using FubuCore.Formatting;
@@ -26,8 +25,8 @@ namespace FubuMVC.SlickGrid.Export
                 new Cache<IGridColumn, AccessRight>(col => fieldAccessService.RightsFor(null, col.Accessor.InnerProperty));
 
             var filteredColumns = allColumns.Where(col => !rights[col].Equals(AccessRight.None)).OrderByDescending(x => x.IsFrozen).ToList();
-            var headers = GetHeaders(filteredColumns, rights);
-            writer.WriteHeaders(headers.Headers);
+            var columnInfo = GetColumnInfo(filteredColumns);
+            writer.WriteHeaders(columnInfo.Headers);
 
             var data = model.As<IDictionary<string, object>>();
             var rowData = data["data"].As<IEnumerable<IDictionary<string, object>>>();
@@ -37,7 +36,7 @@ namespace FubuMVC.SlickGrid.Export
                 var values = new List<string>();
                 row.Each(column =>
                 {
-                    if (headers.FieldNames.Contains(column.Key))
+                    if (columnInfo.FieldNames.Contains(column.Key))
                     {
                         values.Add(column.Value.ToString());
                     }
@@ -46,50 +45,33 @@ namespace FubuMVC.SlickGrid.Export
             });
         }
 
-        private HeaderInfo GetHeaders(IList<IGridColumn> columns, Cache<IGridColumn, AccessRight> rights)
+        private ColumnInfo GetColumnInfo(IEnumerable<IGridColumn> columns)
         {
             var headers = new List<string>();
             var fields = new List<string>();
 
-            for (var i = 0; i < columns.Count; i++)
-            {
-                var column = columns[i];
-                var access = rights[column];
-                column.Properties
-                      .Each((key, value) =>
-                      {
-                          if (key == "editor" && !AccessRight.All.Equals(access))
-                          {
-                              return;
-                          }
+            columns.Each(column =>
+                column.Properties.Each((key, value) =>
+                {
+                    if (key == "name")
+                    {
+                        headers.Add(value.ToString());
+                    }
 
-                          if (key == "name")
-                          {
-                              headers.Add(value.ToString());
-                          }
+                    if (key == "field")
+                    {
+                        fields.Add(value.ToString());
+                    }
+                }));
 
-                          if (key == "field")
-                          {
-                              fields.Add(value.ToString());
-                          }
-                      });
-            }
-
-            return new HeaderInfo
+            return new ColumnInfo
             {
                 Headers = headers.ToArray(),
                 FieldNames = fields.ToArray()
             };
         }
 
-        private IDictionary<string, object> GetData(IServiceLocator locator, Type runnerType)
-        {
-            var runner = locator.GetInstance(runnerType);
-            var method = runnerType.GetMethod("Run");
-            return method.Invoke(runner, null) as IDictionary<string, object>;
-        }
-
-        private class HeaderInfo
+        private class ColumnInfo
         {
             public string[] Headers { get; set; }
             public string[] FieldNames { get; set; }

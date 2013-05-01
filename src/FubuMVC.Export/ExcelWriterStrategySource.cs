@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FubuCore;
+using FubuCore.Csv;
 using FubuMVC.Core.Registration;
 
 namespace FubuMVC.Export
@@ -33,9 +34,17 @@ namespace FubuMVC.Export
         private static IDictionary<Type, IEnumerable<Type>> buildDictionary()
         {
             return Mappings.Value
-                .GroupBy(x => x.BaseType.GetGenericArguments()[0])
+                .GroupBy(GroupByType)
                 .Select(x => new {ResourceType = x.Key, MappingTypes = x.ToList()})
                 .ToDictionary(x => x.ResourceType, x => (IEnumerable<Type>) x.MappingTypes);
+        }
+
+        private static Type GroupByType(Type parentType)
+        {
+            var baseType = parentType.GetBaseType(type =>
+                type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof (ColumnMapping<>));
+
+            return baseType.GetGenericArguments().First();
         }
 
         private static IEnumerable<Type> findMappings()

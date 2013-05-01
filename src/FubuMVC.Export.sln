@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.SlickGrid.Export", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.SlickGrid.Export.Tests", "FubuMVC.SlickGrid.Export.Tests\FubuMVC.SlickGrid.Export.Tests.csproj", "{B99ECAB0-21B6-43F6-9187-9CA6F0049208}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D54CEB2F-0A25-43EC-B34C-6B46A24C769D}"
+	ProjectSection(SolutionItems) = preProject
+		..\TESTS.txt = ..\TESTS.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
