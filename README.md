@@ -79,6 +79,7 @@ Create a service that can make a call to the defined `EndPoint` `Action`.  FubuM
             return $.ajax({
                 url: url,
                 type: 'GET',
+                cache: false,
                 headers: {
                     Accept: "application/xlsx,application/json; charset=utf-8"
                 }
