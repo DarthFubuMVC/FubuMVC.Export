@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.SlickGrid.Export.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D54CEB2F-0A25-43EC-B34C-6B46A24C769D}"
 	ProjectSection(SolutionItems) = preProject
+		..\rakefile.rb = ..\rakefile.rb
 		..\TESTS.txt = ..\TESTS.txt
 	EndProjectSection
 EndProject

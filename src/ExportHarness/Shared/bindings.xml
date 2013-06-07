@@ -1,23 +1,28 @@
 ﻿<?xml version="1.0"?>
 <bindings>
-	<element name="Stylesheet">#this.Asset('@href');</element>
-	<element name="Script">#this.Asset('@src');</element>
-	<element name="Asset">#this.Asset('@src');</element>
-	<element name="Scripts">this.WriteScriptTags()</element>
-	<element name="Styles">this.WriteCssTags()</element>
-	<element name="Image">this.ImageFor('@src')</element>
-	<element name="Partial">this.Partial&lt;@model&gt;()</element>
+  <element name="Stylesheet">#this.Asset('@href');</element>
+  <element name="Script">#this.Asset('@src');</element>
+  <element name="Asset">#this.Asset('@src');</element>
+  <element name="SingleScript">this.SingleScript('@src')</element>
+  <element name="Scripts">this.WriteScriptTags()</element>
+  <element name="Styles">this.WriteCssTags()</element>
+  <element name="Image">this.ImageFor('@src')</element>
+  <element name="Partial">this.Partial&lt;@model&gt;()</element>
+  <element name="Form">
+    <start>this.FormFor&lt;@model&gt;()</start>
+    <end>this.EndForm()</end>
+  </element>
 
-	<element name="Edit">this.Edit(x => x.@name)</element>
-	<element name="Show">this.Show(x => x.@name)</element>
-	<element name="Input">this.InputFor(x => x.@name)</element>
-	<element name="Label">this.LabelFor(x => x.@name)</element>
-	<element name="Display">this.DisplayFor(x => x.@name)</element>
+  <element name="ColumnFor">this.ColumnFor(m =&gt; m.@property)</element>
+  <element name="Label">this.LabelFor(m =&gt; m.@property)</element>
+  <element name="Display">this.DisplayFor(m =&gt; m.@property)</element>
+  <element name="Input">this.InputFor(m =&gt; m.@property)</element>
+  <element name="Edit">this.Edit(m =&gt; m.@property)</element>
+  <element name="EditableDisplay">this.EditableDisplayFor(m =&gt; m.@property)</element>
+  <element name="InputWatermark">this.InputFor(m =&gt; m.@property).Attr("placeholder", "@placeholder")</element>
+  <element name="Hidden">this.HiddenFor(m =&gt; m.@property)</element>
 
-    <element name="TemplateField">this.TemplateField(x => x.@name)</element>
+  <element name="TemplateField">this.TemplateField(x => x.@name)</element>
 
-	<element name="Form">
-		<start>this.FormFor&lt;@model&gt;()</start>
-		<end>this.EndForm()</end>
-	</element>
+  <element name="LabelText">this.HeaderText(m =&gt; m.@property)</element>
 </bindings>
